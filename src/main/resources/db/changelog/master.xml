@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!-- Config -->
+    <include file="liquibase/001_create_databasechangelog_pk.xml" relativeToChangelogFile="true"/>
+
+    <include file="liquibase/002_create_company_branch_table.xml" relativeToChangelogFile="true"/>
+    <include file="liquibase/003_create_countries_table.xml" relativeToChangelogFile="true"/>
+    <include file="liquibase/004_insert_countries.xml" relativeToChangelogFile="true"/>
+    <include file="liquibase/005_create_company_table.xml" relativeToChangelogFile="true"/>
+
+
+</databaseChangeLog>

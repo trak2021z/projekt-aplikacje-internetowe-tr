@@ -1,0 +1,3 @@
+mysql -uap -pxxx << EOF
+CREATE DATABASE ap DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+EOF

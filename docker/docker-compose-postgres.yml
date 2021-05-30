@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  db-diet:
+    image: postgres:13.1
+    ports:
+    - "5432:5432"
+    volumes:
+    - db-data-postgres:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: ap
+      POSTGRES_PASSWORD: xxx
+      POSTGRES_DB: ap
+    networks:
+        - code-network
+      
+networks:
+  code-network:
+     driver: bridge      
+
+volumes:
+    db-data-postgres:
+
+

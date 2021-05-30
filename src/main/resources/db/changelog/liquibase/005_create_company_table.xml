@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create_company_table" author="kobylskia">
+        <createTable tableName="company">
+            <column name="id" type="BIGINT(20)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="nip" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="phone_number" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="branch_id" type="BIGINT(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="create_company-company_branch_relation" author="kobylskia">
+        <addForeignKeyConstraint baseTableName="company"
+                                 baseColumnNames="branch_id"
+                                 constraintName="company-company_branch_fk"
+                                 referencedTableName="company_branch"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
