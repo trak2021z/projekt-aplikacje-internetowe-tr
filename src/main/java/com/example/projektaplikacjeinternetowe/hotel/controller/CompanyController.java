@@ -1,10 +1,9 @@
 package com.example.projektaplikacjeinternetowe.hotel.controller;
 
-import com.example.projektaplikacjeinternetowe.hotel.commons.dto.PageImpl;
 import com.example.projektaplikacjeinternetowe.hotel.company.dto.CompanyDto;
 import com.example.projektaplikacjeinternetowe.hotel.company.impl.CompanyService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,18 +13,27 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/companies")
 @RequiredArgsConstructor
+@Slf4j
 public class CompanyController {
 
     private final CompanyService companyService;
 
     @GetMapping
     public ResponseEntity<List<CompanyDto>> getCompanies() {
-        return ResponseEntity.ok(companyService.getCompanies());
+        var start = System.nanoTime();
+        var result = ResponseEntity.ok(companyService.getCompanies());
+        var end = System.nanoTime();
+        log.info("With cache elapsed time: " + (end - start));
+        return result;
     }
 
     @GetMapping("/no-cache")
     public ResponseEntity<List<CompanyDto>> getCompaniesWithoutCaching() {
-        return ResponseEntity.ok(companyService.getCompaniesWithOutCaching());
+        var start = System.nanoTime();
+        var result = ResponseEntity.ok(companyService.getCompaniesWithOutCaching());
+        var end = System.nanoTime();
+        log.info("Without cache elapsed time: " + (end - start));
+        return result;
     }
 
     @GetMapping("/{id}")
