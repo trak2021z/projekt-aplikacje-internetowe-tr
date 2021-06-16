@@ -12,6 +12,9 @@
     <include file="liquibase/003_create_countries_table.xml" relativeToChangelogFile="true"/>
     <include file="liquibase/004_insert_countries.xml" relativeToChangelogFile="true"/>
     <include file="liquibase/005_create_company_table.xml" relativeToChangelogFile="true"/>
-
+    <include file="liquibase/007_create_employee_table.xml" relativeToChangelogFile="true"/>
+    <include file="liquibase/008_create_address_table.xml" relativeToChangelogFile="true"/>
+    <include file="liquibase/009_create_employee_company_table.xml" relativeToChangelogFile="true"/>
+    <include file="liquibase/010_create_employe_address_table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

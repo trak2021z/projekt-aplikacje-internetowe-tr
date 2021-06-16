@@ -2,10 +2,12 @@ package com.example.projektaplikacjeinternetowe.hotel.company.entity;
 
 import com.example.projektaplikacjeinternetowe.hotel.commons.entity.AbstractEntity;
 import com.example.projektaplikacjeinternetowe.hotel.company_branch.entity.CompanyBranchEntity;
+import com.example.projektaplikacjeinternetowe.hotel.employee.entity.EmployeeEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "company")
@@ -31,4 +33,7 @@ public class CompanyEntity extends AbstractEntity<Long> {
 
     @Column(name = "phoneNumber", nullable = false)
     private String phoneNumber;
+
+    @ManyToMany(mappedBy = "companies")
+    private Set<EmployeeEntity> employees;
 }
